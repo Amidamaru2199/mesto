@@ -1,0 +1,11 @@
+.profile__edit-button {
+    background-image: url(../../../../mesto/images/Pen.svg);
+    background-color: transparent;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    height: 24px;
+    width: 24px;
+    margin: 37px 0 0 18px;
+    border: 1px solid #FFFFFF;
+    cursor: pointer;
+}

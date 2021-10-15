@@ -1,0 +1,10 @@
+.elements {
+    max-width: 880px;
+    /*display: grid;
+    grid-template-columns: 1fr 1fr 1fr;*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+    column-gap: 17px;
+}
