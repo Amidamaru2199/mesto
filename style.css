@@ -23,6 +23,18 @@
     margin-bottom: 36px;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 .profile {
     max-width: 880px;
     display: flex;
@@ -31,7 +43,7 @@
 }
 
 .container__profile {
-    margin: 0 auto;
+    margin: 100px auto 0;
 }
 
 .profile__image {
@@ -96,6 +108,15 @@
     border: 1px solid #FFFFFF;
     cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
 
 
 

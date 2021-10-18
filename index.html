@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../mesto/vendor/normalize.css">
     <!--<link rel="stylesheet" href="../mesto/style.css">-->
     <link rel="stylesheet" href="../mesto/pages/index.css">
     <title>Document</title>
@@ -16,8 +15,7 @@
         </header>
 
         <main>
-            <section class="profile container__profile">
-                
+            <!--<section class="profile container__profile">
                 <div class="profile__info">
                     <img class="profile__image" src="../mesto/images/image.jpg" alt="Картинка">
                     <div class="profile__text">
@@ -26,15 +24,29 @@
                     </div>
                     <button class="profile__edit-button"></button>
                 </div>
-                <button class="profile__add-button"></button> 
-            </section>
+                <button class="profile__add-button"></button>
+            </section>-->
+
+            <section class="profile container__profile">
+                <div class="profile__info">
+                  <img class="profile__image" src="../mesto/images/image.jpg" alt="Картинка" />
+                  <div class="profile__text">
+                    <div class="profile__title">
+                      <h1 class="profile__name">Жак-Ив Кусто</h1>
+                      <button class="profile__edit-button"></button>
+                    </div>
+                    <p class="profile__subtitle">Исследователь океана</p>
+                  </div>
+                </div>
+                <button class="profile__add-button"></button>
+              </section>
 
             <section class="elements container__elements">
                 <div class="element elements__element">
                     <img class="element__image" src="../mesto/images/kirill-pershin-1088404-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Карачаевск</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
 
@@ -42,7 +54,7 @@
                     <img class="element__image" src="../mesto/images/kirill-pershin-1404681-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Гора Эльбрус</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
 
@@ -50,7 +62,7 @@
                     <img class="element__image" src="../mesto/images/kirill-pershin-1556355-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Домбай</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
 
@@ -58,7 +70,7 @@
                     <img class="element__image" src="../mesto/images/kirill-pershin-1556355-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Домбай</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
 
@@ -66,7 +78,7 @@
                     <img class="element__image" src="../mesto/images/kirill-pershin-1088404-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Карачаевск</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
 
@@ -74,7 +86,7 @@
                     <img class="element__image" src="../mesto/images/kirill-pershin-1404681-unsplash.jpg">
                     <div class="element__text-info">
                         <p class="element__text">Гора Эльбрус</p>
-                        <img class="element__vector" src="../mesto/images/serdechko.svg">
+                        <button class="element__vector"></button>
                     </div>
                 </div>
             </section>
@@ -84,6 +96,17 @@
         <footer class="footer container__footer">
             <p class="footer__copyrate">© 2020 Mesto Russia</p>
         </footer>
+
+        <section class="popup">
+            <div class="popup__container">
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__field popup__field-name" value="Жак-Ив Кусто">
+                <input class="popup__field popup__field-profession" value="Исследователь океана">
+                <button class="popup__button"><p class="popup__button-text">Сохранить</p></button>
+                <button class="popup__close-button"></button>
+            </div>
+        </section>
     </div>
+    <script src="../mesto/scripts/index.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-.profile__info {
+/*.profile__info {
     display: grid;
     grid-template-columns: 120px 1fr 42px;
 }
@@ -10,4 +10,16 @@
         "profile__image profile__image"
         "profile__text profile__edit-button"
     }
-}
+}*/
+
+.profile__info {
+    display: flex;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 690px) {
+    .profile__info {
+        flex-direction: column;
+        text-align: center;
+      }
+  }

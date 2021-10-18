@@ -5,5 +5,19 @@
     font-size: 18px;
     line-height: 22px;
     color: #FFFFFF;
-    margin: 0 0 22px;
+    margin: 0;
 }
+/*.profile__subtitle {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: #ffffff;
+    margin-top: 16px;
+  }*/
+
+  @media screen and (max-width: 690px) {
+    .profile__subtitle {
+        font-size: 14px;
+      }
+  }

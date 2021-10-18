@@ -1,5 +1,5 @@
 .container__elements {
-    margin: 51px auto 51px;
+    margin: 51px auto 68px;
 }
 
 @media screen and (max-width: 928px) {
@@ -10,6 +10,6 @@
 
 @media screen and (max-width: 444px) {
     .container__elements {
-        margin: 51px 19px 51px;
+        margin: 36px 19px 48px;
     }
 }
