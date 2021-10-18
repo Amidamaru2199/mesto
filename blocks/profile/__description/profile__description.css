@@ -1,4 +1,4 @@
-.profile__subtitle {
+.profile__description {
     font-family: Inter;
     font-style: normal;
     font-weight: normal;
@@ -6,6 +6,10 @@
     line-height: 22px;
     color: #FFFFFF;
     margin: 0;
+    white-space: nowrap; /* Запрещаем перенос строк */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 336px;
 }
 /*.profile__subtitle {
     font-family: Inter;
@@ -17,7 +21,7 @@
   }*/
 
   @media screen and (max-width: 690px) {
-    .profile__subtitle {
+    .profile__description {
         font-size: 14px;
       }
   }
