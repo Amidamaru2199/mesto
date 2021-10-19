@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<link rel="stylesheet" href="../mesto/style.css">-->
-    <link rel="stylesheet" href="../mesto/pages/index.css">
+    <link rel="stylesheet" href="./pages/index.css">
     <title>Document</title>
 </head>
 <body class="page">
     <div class="container page__container">
         <header class="header container__header">
-           <img class="header__logo" src="../mesto/images/Vector.svg" alt="Лого"> 
+           <img class="header__logo" src="./images/Vector.svg" alt="Лого"> 
         </header>
 
         <main>
@@ -29,7 +28,7 @@
 
             <section class="profile container__profile">
                 <div class="profile__info">
-                  <img class="profile__image" src="../mesto/images/image.jpg" alt="Лого">
+                  <img class="profile__image" src="./images/image.jpg" alt="Лого">
                   <div class="profile__text">
                     <div class="profile__title">
                       <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -43,7 +42,7 @@
 
             <section class="elements container__elements">
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/karachaevsk.jpg" alt="Карачаевск">
+                    <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
                         <p class="element__text">Карачаевск</p>
                         <button class="element__vector"></button>
@@ -51,7 +50,7 @@
                 </div>
 
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/elbrus.jpg" alt="Эльбрус">
+                    <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
                         <p class="element__text">Гора Эльбрус</p>
                         <button class="element__vector"></button>
@@ -59,7 +58,7 @@
                 </div>
 
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/dombai.jpg" alt="Домбай">
+                    <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
                         <p class="element__text">Домбай</p>
                         <button class="element__vector"></button>
@@ -67,7 +66,7 @@
                 </div>
 
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/dombai.jpg" alt="Домбай">
+                    <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
                         <p class="element__text">Домбай</p>
                         <button class="element__vector"></button>
@@ -75,7 +74,7 @@
                 </div>
 
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/karachaevsk.jpg" alt="Карачаевск">
+                    <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
                         <p class="element__text">Карачаевск</p>
                         <button class="element__vector"></button>
@@ -83,7 +82,7 @@
                 </div>
 
                 <div class="element elements__element">
-                    <img class="element__image" src="../mesto/images/elbrus.jpg" alt="Эльбрус">
+                    <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
                         <p class="element__text">Гора Эльбрус</p>
                         <button class="element__vector"></button>
@@ -101,14 +100,14 @@
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form">
-                    <input class="popup__field popup__field-name" value="Жак-Ив Кусто">
-                    <input class="popup__field popup__field-profession" value="Исследователь океана">
+                    <input name="name" type="text" class="popup__field" id="name-field" value="">
+                    <input name="profession" type="text" class="popup__field" id="profession-field" value="">
                     <button class="popup__button" type="submit">Сохранить</button>
                 </form>
                 <button class="popup__close-button"></button>
             </div>
         </section>
     </div>
-    <script src="../mesto/scripts/index.js"></script>
+    <script src="./scripts/index.js"></script>
 </body>
 </html>

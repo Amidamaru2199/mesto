@@ -3,6 +3,8 @@ const popupCloseButtonElement = popupElement.querySelector('.popup__close-button
 const popupOpenButtonElement = document.querySelector('.profile__edit-button');
 
 const openPopup = function() {
+    nameInput.value = nameElement.textContent;
+    jobInput.value = descriptionElement.textContent;
     popupElement.classList.add('popup_is-opened');
 };
 
@@ -17,8 +19,8 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 
 const formElement = document.querySelector('.popup__form');
 
-const nameInput = formElement.querySelector('.popup__field-name');
-const jobInput = formElement.querySelector('.popup__field-profession');
+const nameInput = formElement.querySelector('#name-field');
+const jobInput = formElement.querySelector('#profession-field');
 
 const nameElement = document.querySelector('.profile__name');
 const descriptionElement = document.querySelector('.profile__description');
@@ -34,6 +36,19 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 const popupAddEndCloseButton = document.querySelector('.popup__button');
 popupAddEndCloseButton.addEventListener('click', closePopup);
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /*const vectorElement = document.querySelector('.element__vector');
