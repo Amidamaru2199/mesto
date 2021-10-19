@@ -28,8 +28,8 @@ const descriptionElement = document.querySelector('.profile__description');
 function formSubmitHandler (evt) {
     evt.preventDefault();
     
-nameElement.textContent = nameInput.value;
-descriptionElement.textContent = jobInput.value;
+    nameElement.textContent = nameInput.value;
+    descriptionElement.textContent = jobInput.value;
 };
 
 formElement.addEventListener('submit', formSubmitHandler);

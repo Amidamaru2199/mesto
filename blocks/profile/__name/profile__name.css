@@ -11,7 +11,7 @@
     white-space: nowrap; /* Запрещаем перенос строк */
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 292px;
+    max-width: 300px;
   }
 
   @media screen and (max-width: 690px) {

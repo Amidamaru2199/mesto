@@ -11,5 +11,3 @@
 ### Ссылка на GitHub Pages:
 
  https://amidamaru2199.github.io/mesto/
-
-
