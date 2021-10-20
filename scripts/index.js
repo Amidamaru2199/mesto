@@ -36,29 +36,3 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 const popupAddEndCloseButton = document.querySelector('.popup__button');
 popupAddEndCloseButton.addEventListener('click', closePopup);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*const vectorElement = document.querySelector('.element__vector');
-
-const toggleVector = function() {
-    vectorElement.classList.toggle('element__vector_active');
-};
-
-vectorElement.addEventListener('click', toggleVector);*/
-
-
-
-
