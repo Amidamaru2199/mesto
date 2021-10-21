@@ -8,7 +8,6 @@
     margin: 0px 0 0 18px;
     border: 1px solid #FFFFFF;
     cursor: pointer;
-    border-radius: 2px;
 }
 
 .profile__edit-button:hover {
@@ -22,15 +21,3 @@
         margin-left: 10px;
     }
 }
-
-/*.profile__edit-button {
-    background-image: url(./Pen.svg);
-    background-color: transparent;
-    background-position: 50%;
-    background-repeat: no-repeat;
-    height: 24px;
-    width: 24px;
-    border: 1px solid #ffffff;
-    cursor: pointer;
-    margin-left: 18px;
-  }*/

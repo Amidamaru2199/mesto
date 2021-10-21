@@ -6,22 +6,16 @@
     line-height: 22px;
     color: #FFFFFF;
     margin: 0;
-    white-space: nowrap; /* Запрещаем перенос строк */
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 336px;
 }
-/*.profile__subtitle {
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    color: #ffffff;
-    margin-top: 16px;
-  }*/
+
 
   @media screen and (max-width: 690px) {
     .profile__description {
         font-size: 14px;
+        line-height: 17px;
       }
   }

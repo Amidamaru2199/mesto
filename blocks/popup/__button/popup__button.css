@@ -2,7 +2,7 @@
     max-width: 358px;
     height: 50px;
     background-color: #000000;
-    margin: 48px 36px 0;
+    margin: 46px 36px 37px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -24,6 +24,9 @@
 
 @media screen and (max-width: 566px) {
     .popup__button {
-        margin: 45px 22px 0;
+        margin: 45px 22px 25px;
+        font-size: 14px;
+        line-height: 17px;
+        height: 46px;
     }
 }

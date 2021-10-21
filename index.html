@@ -20,80 +20,80 @@
                   <div class="profile__text">
                     <div class="profile__title">
                       <h1 class="profile__name">Жак-Ив Кусто</h1>
-                      <button class="profile__edit-button"></button>
+                      <button type="button" class="profile__edit-button"></button>
                     </div>
                     <p class="profile__description">Исследователь океана</p>
                   </div>
                 </div>
-                <button class="profile__add-button"></button>
+                <button type="button" class="profile__add-button"></button>
               </section>
 
             <section class="elements container__elements">
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
-                        <p class="element__text">Карачаевск</p>
-                        <button class="element__vector"></button>
+                        <h2 class="element__text">Карачаевск</h2>
+                        <button type="button" class="element__vector"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
-                        <p class="element__text">Гора Эльбрус</p>
+                        <h2 class="element__text">Гора Эльбрус</h2>
                         <button class="element__vector"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
-                        <p class="element__text">Домбай</p>
+                        <h2 class="element__text">Домбай</h2>
                         <button class="element__vector"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
-                        <p class="element__text">Домбай</p>
+                        <h2 class="element__text">Домбай</h2>
                         <button class="element__vector"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
-                        <p class="element__text">Карачаевск</p>
+                        <h2 class="element__text">Карачаевск</h2>
                         <button class="element__vector"></button>
                     </div>
-                </div>
+                </article>
 
-                <div class="element elements__element">
+                <article class="element elements__element">
                     <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
-                        <p class="element__text">Гора Эльбрус</p>
+                        <h2 class="element__text">Гора Эльбрус</h2>
                         <button class="element__vector"></button>
                     </div>
-                </div>
+                </article>
             </section>
         </main>
 
         <footer class="footer container__footer">
-            <p class="footer__copyrate">© 2020 Mesto Russia</p>
+            <p class="footer__copyrate">&copy; 2020 Mesto Russia</p>
         </footer>
 
-        <section class="popup">
+        <div class="popup">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
-                <form class="popup__form">
+                <form name="edit-form" class="popup__form">
                     <input placeholder="Имя" name="name" type="text" class="popup__field" id="name-field" value="">
                     <input placeholder="Профессия" name="profession" type="text" class="popup__field" id="profession-field" value="">
                     <button class="popup__button" type="submit">Сохранить</button>
                 </form>
-                <button class="popup__close-button"></button>
+                <button type="button" class="popup__close-button"></button>
             </div>
-        </section>
+        </div>
     </div>
     <script src="./scripts/index.js"></script>
 </body>
