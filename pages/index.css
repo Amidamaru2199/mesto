@@ -31,6 +31,7 @@
 @import url(../blocks/element/__image/element__image.css);
 @import url(../blocks/element/__vector/element__vector.css);
 @import url(../blocks/element/__vector/_active/element__vector_active.css);
+@import url(../blocks/element/__delete-button/element__delete-button.css);
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyrate/footer__copyrate.css);

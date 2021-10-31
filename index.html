@@ -28,62 +28,70 @@
                 <button type="button" class="profile__add-button"></button>
               </section>
 
-            <section class="elements container__elements">
-                <article class="element elements__element">
+            <ul class="elements container__elements">
+
+                <!--<li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
                         <h2 class="element__text">Карачаевск</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
+                </li>
 
-                <article class="element elements__element">
+                <li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
                         <h2 class="element__text">Гора Эльбрус</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
+                </li>
 
-                <article class="element elements__element">
+                <li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
                         <h2 class="element__text">Домбай</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
+                </li>
 
-                <article class="element elements__element">
+                <li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/dombai.jpg" alt="Домбай">
                     <div class="element__text-info">
                         <h2 class="element__text">Домбай</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
+                </li>
 
-                <article class="element elements__element">
+                <li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/karachaevsk.jpg" alt="Карачаевск">
                     <div class="element__text-info">
                         <h2 class="element__text">Карачаевск</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
+                </li>
 
-                <article class="element elements__element">
+                <li class="element elements__element">
+                    <button class="element__delete-button"></button>
                     <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус">
                     <div class="element__text-info">
                         <h2 class="element__text">Гора Эльбрус</h2>
                         <button type="button" class="element__vector"></button>
                     </div>
-                </article>
-            </section>
+                </li>-->
+
+            </ul>
         </main>
 
         <footer class="footer container__footer">
             <p class="footer__copyrate">&copy; 2020 Mesto Russia</p>
         </footer>
-
-        <div class="popup">
+                                    <!--Попап редактирования-->
+        <div class="popup popup_type_edit">
             <div class="popup__container">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form name="edit-form" class="popup__form">
@@ -94,7 +102,31 @@
                 <button type="button" class="popup__close-button"></button>
             </div>
         </div>
+                                    <!--Попап добавления карточек-->
+        <div class="popup popup_type_card">
+            <div class="popup__container">
+                <h2 class="popup__title">Новое место</h2>
+                <form name="add-form" class="popup__form">
+                    <input placeholder="Название" name="name" type="text" class="popup__field" id="title-field" value="">
+                    <input placeholder="Ссылка на картинку" name="profession" type="text" class="popup__field" id="link-field" value="">
+                    <button class="popup__button" type="submit">Сохранить</button>
+                </form>
+                <button type="button" class="popup__close-button"></button>
+            </div>
+        </div>
     </div>
+                                       <!--Шаблон карточки-->
+    <template class="item_template">
+        <li class="element elements__element">
+            <button class="element__delete-button"></button>
+            <img class="element__image" src="" alt="">
+            <div class="element__text-info">
+                <h2 class="element__text"></h2>
+                <button type="button" class="element__vector"></button>
+            </div>
+        </li>
+    </template>
+
     <script src="./scripts/index.js"></script>
 </body>
 </html>
