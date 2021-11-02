@@ -2,11 +2,19 @@
     margin: 51px auto 68px;
 }
 
-@media screen and (max-width: 928px) {
+@media screen and (max-width: 927px) {
+    .container__elements {
+        margin: 51px auto 51px;
+    }
+}
+
+
+@media screen and (max-width: 629px) {
     .container__elements {
         margin: 51px 24px 51px;
     }
 }
+
 
 @media screen and (max-width: 444px) {
     .container__elements {
