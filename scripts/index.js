@@ -159,3 +159,46 @@ function Submit (evt) {
 addFormElement.addEventListener('submit', Submit);
 
 render();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const imagePopupElement = document.querySelector('.popup-image');//попап картинка
+const cardElement = document.querySelector('.element');//карточка
+const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
+const cardElementText = cardElement.querySelector('.element__text');//название карточки
+const imagePopupCloseButtonElement = imagePopupElement.querySelector('.popup__close-button');//кнопка закрытия 
+
+const openImagePopup = function() {//открывашка
+  imagePopupElement.classList.add('popup_is-opened');
+};
+
+const closeImagePopup = function() {//закрывашка
+  imagePopupElement.classList.remove('popup_is-opened');
+};
+
+imagePopupOpenImgElement.addEventListener('click', openImagePopup);//навесили открытие на картинку
+imagePopupCloseButtonElement.addEventListener('click', closeImagePopup);//навесили закрытие на кнопку
+
+const getAttributeSrc = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
+const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
+imagePopupElementImg.src = getAttributeSrc;//прировняли src из попапа к src из карточки
+
+const getText = cardElementText.textContent;//взяли текст из карточки
+const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
+imagePopupElementText.textContent = getText;//прировняли текст из карточки к тексту попапа
