@@ -188,3 +188,101 @@ function handleLicke(event) {
 };
 
 render();
+
+const closeEditPopupByClickOverlay = function(event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  };
+  closePopup(editPopupElement);
+};
+
+editPopupElement.addEventListener('click', closeEditPopupByClickOverlay);
+
+const closeAddPopupByClickOverlay = function(event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  };
+  closePopup(cardPopupElement);
+};
+
+const closeImagePopupByClickOverlay = function(event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  };
+  closePopup(imagePopupElement);
+};
+
+editPopupElement.addEventListener('click', closeEditPopupByClickOverlay);
+cardPopupElement.addEventListener('click', closeAddPopupByClickOverlay);
+imagePopupElement.addEventListener('click', closeImagePopupByClickOverlay);
+
+
+
+
+
+
+function enableValidation() {
+  const forms = Array.from(document.querySelectorAll('.popup__form'));
+  
+  forms.forEach(addListenersToForm);
+};
+
+enableValidation();
+
+function addListenersToForm(form) {
+  const inputs = Array.from(document.querySelectorAll('.popup__field'));
+
+  inputs.forEach(addListenersToInput);
+
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+  });
+  form.addEventListener('input', handleFormInput);
+  toogleButton(form);
+};
+
+function handleFormInput(evt) {
+  toogleButton(evt.currentTarget)
+};
+
+function toogleButton(form) {
+  const button = form.querySelector('.popup__button');
+  const isFormInvalid = !form.checkValidity();
+  
+  button.disabled = isFormInvalid;
+  button.classList.toggle('popup__button_invalid', isFormInvalid);
+};
+
+function addListenersToInput(input) {
+  input.addEventListener('input', handleFieldValidation);
+};
+
+function handleFieldValidation(evt) {
+  const element = evt.target
+  const errorContainer = document.querySelector(`#${element.id}-error`);
+  if (!element.validity.valid) {
+    element.classList.add('popup__field_invalid');
+  } else {
+    element.classList.remove('popup__field_invalid');
+  }
+  errorContainer.textContent = element.validationMessage;
+};
+
+
+
+
+
+
+
+
+
+
+
+function closePopupByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_is-opened');
+    closePopup(openedPopup);
+  };
+};
+
+document.addEventListener('keydown', closePopupByEscape);
