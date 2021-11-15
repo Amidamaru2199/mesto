@@ -26,7 +26,7 @@ const imagePopupElement = document.querySelector('.popup-image');//попап к
 const imagePopupCloseButtonElement = imagePopupElement.querySelector('.popup__close-button');//кнопка закрытия
 
 
-const initialCards = [//массив карточек
+/*const initialCards = [//массив карточек
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -51,7 +51,7 @@ const initialCards = [//массив карточек
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
   }
-];
+];*/
 
 
 
@@ -197,7 +197,7 @@ const imagePopupElementText = imagePopupElement.querySelector('.popup-image__tex
 
 renderInitialCards();
 
-const closeEditPopupByClickOverlay = function(event) {
+/*const closeEditPopupByClickOverlay = function(event) {
   if (event.target !== event.currentTarget) {
     return;
   };
@@ -220,9 +220,19 @@ const closeImagePopupByClickOverlay = function(event) {
 
 editPopupElement.addEventListener('click', closeEditPopupByClickOverlay);
 cardPopupElement.addEventListener('click', closeAddPopupByClickOverlay);
-imagePopupElement.addEventListener('click', closeImagePopupByClickOverlay);
+imagePopupElement.addEventListener('click', closeImagePopupByClickOverlay);*/
 
+const closePopupByClickOverlay = function(event) {
+  if (event.target !== event.currentTarget) {
+    return;
+  };
+  const pop = document.querySelector('.popup_is-opened');
+  closePopup(pop);
+};
 
+editPopupElement.addEventListener('click', closePopupByClickOverlay);
+cardPopupElement.addEventListener('click', closePopupByClickOverlay);
+imagePopupElement.addEventListener('click', closePopupByClickOverlay);
 
 const config = {
   formSelector: '.popup__form',
@@ -232,7 +242,6 @@ const config = {
   inputErrorClass: 'popup__input_invalid',
   errorClass: 'popup__error'
 };
-
 
 function enableValidation() {
   const forms = Array.from(document.querySelectorAll('.popup__form'));
@@ -281,21 +290,9 @@ function handleFieldValidation(evt) {
   errorContainer.textContent = element.validationMessage;
 };
 
-
-
-
-
-
-
-
-
-
-
 function closePopupByEscape(evt) {
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-opened');
     closePopup(openedPopup);
   };
 };
-
-//document.addEventListener('keydown', closePopupByEscape);
