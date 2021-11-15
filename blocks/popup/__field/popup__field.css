@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 566px) {
     .popup__field {
-        margin: 75px 22px 24px;
+        margin: 75px 22px 0px;
     }
 
     .popup__field:last-of-type {

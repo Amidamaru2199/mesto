@@ -57,10 +57,12 @@ const initialCards = [//массив карточек
 
 function openPopup(popup) {//функция открытия
   popup.classList.add('popup_is-opened');
+  document.addEventListener('keydown', closePopupByEscape);
 };
 
 function closePopup(popup) {//функция закрытия
   popup.classList.remove('popup_is-opened');
+  document.removeEventListener('keydown', closePopupByEscape);
 };
 
 
@@ -285,4 +287,4 @@ function closePopupByEscape(evt) {
   };
 };
 
-document.addEventListener('keydown', closePopupByEscape);
+//document.addEventListener('keydown', closePopupByEscape);
