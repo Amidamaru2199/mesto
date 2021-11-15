@@ -139,8 +139,6 @@ function createCard(element) {
   htmlElement.querySelector('.element__text').textContent = element.name;
   htmlElementImage.src = element.link;
   htmlElementImage.alt = element.name;
-  /*htmlElement.querySelector('.element__image').src = element.link;
-  htmlElement.querySelector('.element__image').alt = element.name;*/
 
   setListeners(htmlElement);
   setLikeListener(htmlElement);
@@ -184,43 +182,9 @@ const imagePopupElementText = imagePopupElement.querySelector('.popup-image__tex
     imagePopupElementImg.alt =  imagePopupOpenImgElement.getAttribute('alt');
     openPopup(imagePopupElement);
   });
-
-
-  /*const getAttributeSrc = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
-  //const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
-
-  const getAttributeAlt = imagePopupOpenImgElement.getAttribute('alt');
-
-  const getText = cardElementText.textContent;//взяли текст из карточки
-  //const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки*/
 };
 
 renderInitialCards();
-
-/*const closeEditPopupByClickOverlay = function(event) {
-  if (event.target !== event.currentTarget) {
-    return;
-  };
-  closePopup(editPopupElement);
-};
-
-const closeAddPopupByClickOverlay = function(event) {
-  if (event.target !== event.currentTarget) {
-    return;
-  };
-  closePopup(cardPopupElement);
-};
-
-const closeImagePopupByClickOverlay = function(event) {
-  if (event.target !== event.currentTarget) {
-    return;
-  };
-  closePopup(imagePopupElement);
-};
-
-editPopupElement.addEventListener('click', closeEditPopupByClickOverlay);
-cardPopupElement.addEventListener('click', closeAddPopupByClickOverlay);
-imagePopupElement.addEventListener('click', closeImagePopupByClickOverlay);*/
 
 const closePopupByClickOverlay = function(event) {
   if (event.target !== event.currentTarget) {
@@ -234,63 +198,7 @@ editPopupElement.addEventListener('click', closePopupByClickOverlay);
 cardPopupElement.addEventListener('click', closePopupByClickOverlay);
 imagePopupElement.addEventListener('click', closePopupByClickOverlay);
 
-const config = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__field',
-  submitButtonSelector: '.popup__button',
-  inactiveButtonClass: 'popup__button_invalid',
-  inputErrorClass: 'popup__input_invalid',
-  errorClass: 'popup__error'
-};
-
-function enableValidation() {
-  const forms = Array.from(document.querySelectorAll('.popup__form'));
-  
-  forms.forEach(addListenersToForm);
-};
-
-enableValidation();
-
-function addListenersToForm(form) {
-  const inputs = Array.from(document.querySelectorAll('.popup__field'));
-
-  inputs.forEach(addListenersToInput);
-
-  form.addEventListener('submit', (evt) => {
-    evt.preventDefault();
-  });
-  form.addEventListener('input', handleFormInput);
-  toogleButton(form);
-};
-
-function handleFormInput(evt) {
-  toogleButton(evt.currentTarget)
-};
-
-function toogleButton(form) {
-  const button = form.querySelector('.popup__button');
-  const isFormInvalid = !form.checkValidity();
-  
-  button.disabled = isFormInvalid;
-  button.classList.toggle('popup__button_invalid', isFormInvalid);
-};
-
-function addListenersToInput(input) {
-  input.addEventListener('input', handleFieldValidation);
-};
-
-function handleFieldValidation(evt) {
-  const element = evt.target
-  const errorContainer = document.querySelector(`#${element.id}-error`);
-  if (!element.validity.valid) {
-    element.classList.add('popup__field_invalid');
-  } else {
-    element.classList.remove('popup__field_invalid');
-  }
-  errorContainer.textContent = element.validationMessage;
-};
-
-function closePopupByEscape(evt) {
+function closePopupByEscape(evt) {//закрытие открытого попапа нажатием на Escape
   if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_is-opened');
     closePopup(openedPopup);
