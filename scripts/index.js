@@ -91,34 +91,34 @@ imagePopupCloseButtonElement.addEventListener('click', function() {//закры�
 
 
 
-function formSubmitHandler (evt) {//берёт знчение из попапа и вставляет в профиль
+function submitEditProfileForm (evt) {//берёт знчение из попапа и вставляет в профиль
   evt.preventDefault();
   nameElement.textContent = nameInput.value;
   descriptionElement.textContent = jobInput.value;
   closePopup(editPopupElement);
 };
 
-editFormElement.addEventListener('submit', formSubmitHandler);//навесили событие на форму попапа редактирования
+editFormElement.addEventListener('submit', submitEditProfileForm);//навесили событие на форму попапа редактирования
 
 
 
-function submit (evt) {//берёт знчение из попапа и вставляет в карточки
+function submitAddCardForm (evt) {//берёт знчение из попапа и вставляет в карточки
   evt.preventDefault();
-  const myObject = {
+  const cardData = {
     name: titleInput.value,
     link: linkInput.value
   };
-  renderItem(myObject);
+  renderItem(cardData);
   closePopup(cardPopupElement);
   titleInput.value = '';
   linkInput.value = '';
 };
 
-addFormElement.addEventListener('submit', submit);//навесили событие на форму попапа добавления карточек
+addFormElement.addEventListener('submit', submitAddCardForm);//навесили событие на форму попапа добавления карточек
 
 
 
-function render() {
+function  renderInitialCards() {
   for (let i = 0; i < initialCards.length; i = i + 1) {
     const element = initialCards[i];
     renderItem(element);
@@ -135,9 +135,12 @@ function renderItem(element) {
 
 function createCard(element) {
   const htmlElement = itemTemplate.content.cloneNode(true);
+  const htmlElementImage = htmlElement.querySelector('.element__image')
   htmlElement.querySelector('.element__text').textContent = element.name;
-  htmlElement.querySelector('.element__image').src = element.link;
-  htmlElement.querySelector('.element__image').alt = element.name;
+  htmlElementImage.src = element.link;
+  htmlElementImage.alt = element.name;
+  /*htmlElement.querySelector('.element__image').src = element.link;
+  htmlElement.querySelector('.element__image').alt = element.name;*/
 
   setListeners(htmlElement);
   setLikeListener(htmlElement);
@@ -159,37 +162,40 @@ function handleDelete(event) {
 
                                                     //Сердечки ..от..                            
 function setLikeListener(element) {
-  element.querySelector('.element__vector').addEventListener('click', handleLicke);
+  element.querySelector('.element__vector').addEventListener('click', handleLikeClick);
 };
 
-function handleLicke(event) {
+function handleLikeClick(event) {
   event.target.classList.toggle('element__vector_active');
 };
                                                       //..до..
 
+const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
+const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
+
   function setImageHandler(cardTemplate) {
-  const cardElement = cardTemplate.querySelector('.element');//карточка
-  const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
-  const cardElementText = cardElement.querySelector('.element__text');//название карточки
+    const cardElement = cardTemplate.querySelector('.element');//карточка
+    const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
+    const cardElementText = cardElement.querySelector('.element__text');//название карточки
   
   imagePopupOpenImgElement.addEventListener('click', function() {
-    imagePopupElementImg.src = getAttributeSrc;
-    imagePopupElementText.textContent = getText;
-    imagePopupElementImg.alt =  getAttributeAlt;
+    imagePopupElementImg.src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
+    imagePopupElementText.textContent = cardElementText.textContent;//взяли текст из карточки
+    imagePopupElementImg.alt =  imagePopupOpenImgElement.getAttribute('alt');
     openPopup(imagePopupElement);
   });
 
 
-  const getAttributeSrc = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
-  const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
+  /*const getAttributeSrc = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
+  //const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
 
   const getAttributeAlt = imagePopupOpenImgElement.getAttribute('alt');
 
   const getText = cardElementText.textContent;//взяли текст из карточки
-  const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
+  //const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки*/
 };
 
-render();
+renderInitialCards();
 
 const closeEditPopupByClickOverlay = function(event) {
   if (event.target !== event.currentTarget) {
@@ -197,8 +203,6 @@ const closeEditPopupByClickOverlay = function(event) {
   };
   closePopup(editPopupElement);
 };
-
-editPopupElement.addEventListener('click', closeEditPopupByClickOverlay);
 
 const closeAddPopupByClickOverlay = function(event) {
   if (event.target !== event.currentTarget) {
@@ -220,7 +224,14 @@ imagePopupElement.addEventListener('click', closeImagePopupByClickOverlay);
 
 
 
-
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_invalid',
+  inputErrorClass: 'popup__input_invalid',
+  errorClass: 'popup__error'
+};
 
 
 function enableValidation() {
