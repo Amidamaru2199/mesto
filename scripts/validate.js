@@ -3,17 +3,17 @@ const config = {
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__button',
     inactiveButtonClass: 'popup__button_invalid',
-    inputErrorClass: 'popup__input_invalid',
+    inputErrorClass: 'popup__field_invalid',
     errorClass: 'popup__error'
   };
   
-  function enableValidation() {
-    const forms = Array.from(document.querySelectorAll(config.formSelector));
+  function enableValidation(configObj) {
+    const forms = Array.from(document.querySelectorAll(configObj.formSelector));
     
     forms.forEach(addListenersToForm);
   };
   
-  enableValidation();
+  enableValidation(config);
   
   function addListenersToForm(form) {
     const inputs = Array.from(document.querySelectorAll(config.inputSelector));
@@ -22,6 +22,7 @@ const config = {
   
     form.addEventListener('submit', (evt) => {
       evt.preventDefault();
+      toogleButton(form);
     });
     form.addEventListener('input', handleFormInput);
     toogleButton(form);

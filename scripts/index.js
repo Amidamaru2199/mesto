@@ -25,36 +25,6 @@ const addFormElementButton = addFormElement.querySelector('.popup__button');//к
 const imagePopupElement = document.querySelector('.popup-image');//попап картинка
 const imagePopupCloseButtonElement = imagePopupElement.querySelector('.popup__close-button');//кнопка закрытия
 
-
-/*const initialCards = [//массив карточек
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];*/
-
-
-
 function openPopup(popup) {//функция открытия
   popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', closePopupByEscape);
@@ -64,8 +34,6 @@ function closePopup(popup) {//функция закрытия
   popup.classList.remove('popup_is-opened');
   document.removeEventListener('keydown', closePopupByEscape);
 };
-
-
 
 editPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа редактирования
   nameInput.value = nameElement.textContent;
@@ -89,8 +57,6 @@ imagePopupCloseButtonElement.addEventListener('click', function() {//закры�
   closePopup(imagePopupElement);
 });
 
-
-
 function submitEditProfileForm (evt) {//берёт знчение из попапа и вставляет в профиль
   evt.preventDefault();
   nameElement.textContent = nameInput.value;
@@ -99,8 +65,6 @@ function submitEditProfileForm (evt) {//берёт знчение из попа�
 };
 
 editFormElement.addEventListener('submit', submitEditProfileForm);//навесили событие на форму попапа редактирования
-
-
 
 function submitAddCardForm (evt) {//берёт знчение из попапа и вставляет в карточки
   evt.preventDefault();
@@ -116,8 +80,6 @@ function submitAddCardForm (evt) {//берёт знчение из попапа 
 
 addFormElement.addEventListener('submit', submitAddCardForm);//навесили событие на форму попапа добавления карточек
 
-
-
 function  renderInitialCards() {
   for (let i = 0; i < initialCards.length; i = i + 1) {
     const element = initialCards[i];
@@ -125,13 +87,10 @@ function  renderInitialCards() {
   };
 };
 
-
-
 function renderItem(element) {
   const htmlElement = createCard(element)
   list.prepend(htmlElement);
 };
-
 
 function createCard(element) {
   const htmlElement = itemTemplate.content.cloneNode(true);
@@ -145,7 +104,6 @@ function createCard(element) {
   setImageHandler(htmlElement);
   return htmlElement;
 };
-
 
                                                      //Удаление карточки ..от..     
 function setListeners(element) {
@@ -190,8 +148,8 @@ const closePopupByClickOverlay = function(event) {
   if (event.target !== event.currentTarget) {
     return;
   };
-  const pop = document.querySelector('.popup_is-opened');
-  closePopup(pop);
+  const openedPopup = document.querySelector('.popup_is-opened');
+  closePopup(openedPopup);
 };
 
 editPopupElement.addEventListener('click', closePopupByClickOverlay);
