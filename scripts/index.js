@@ -21,7 +21,6 @@ const titleInput = addFormElement.querySelector('#title-field');//поле вв�
 const linkInput = addFormElement.querySelector('#link-field');//поле ввода из формы попапа добавления карточек
 const addFormElementButton = addFormElement.querySelector('.popup__button');//кнопка из формы попапа добавления карточек
 
-
 const imagePopupElement = document.querySelector('.popup-image');//попап картинка
 const imagePopupCloseButtonElement = imagePopupElement.querySelector('.popup__close-button');//кнопка закрытия
 
@@ -104,7 +103,6 @@ function createCard(element) {
   setImageHandler(htmlElement);
   return htmlElement;
 };
-
                                                      //Удаление карточки ..от..     
 function setListeners(element) {
   element.querySelector('.element__delete-button').addEventListener('click', handleDelete);
@@ -115,7 +113,6 @@ function handleDelete(event) {
 };
                                                      //до
 
-
                                                     //Сердечки ..от..                            
 function setLikeListener(element) {
   element.querySelector('.element__vector').addEventListener('click', handleLikeClick);
@@ -125,11 +122,10 @@ function handleLikeClick(event) {
   event.target.classList.toggle('element__vector_active');
 };
                                                       //..до..
-
 const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
 const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
 
-  function setImageHandler(cardTemplate) {
+function setImageHandler(cardTemplate) {
     const cardElement = cardTemplate.querySelector('.element');//карточка
     const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
     const cardElementText = cardElement.querySelector('.element__text');//название карточки

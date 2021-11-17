@@ -7,8 +7,8 @@ const config = {
     errorClass: 'popup__error'
   };
   
-  function enableValidation(configObj) {
-    const forms = Array.from(document.querySelectorAll(configObj.formSelector));
+  function enableValidation(config) {
+    const forms = Array.from(document.querySelectorAll(config.formSelector));
     
     forms.forEach(addListenersToForm);
   };
