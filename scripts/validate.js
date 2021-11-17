@@ -24,13 +24,15 @@ const config = {
       evt.preventDefault();
       toogleButton(form);
     });
-    form.addEventListener('input', handleFormInput);
+    form.addEventListener('input', (evt) => {
+      toogleButton(evt.currentTarget);
+    });
     toogleButton(form);
   };
   
-  function handleFormInput(evt) {
+  /*function handleFormInput(evt) {
     toogleButton(evt.currentTarget)
-  };
+  };*/
   
   function toogleButton(form) {
     const button = form.querySelector(config.submitButtonSelector);
