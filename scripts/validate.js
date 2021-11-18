@@ -17,33 +17,24 @@ const config = {
   
   function addListenersToForm(form) {
     const inputs = Array.from(document.querySelectorAll(config.inputSelector));
-  
-    inputs.forEach(addListenersToInput);
-  
-    form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      toogleButton(form);
+    const button = form.querySelector(config.submitButtonSelector);
+    inputs.forEach((input) => {
+      addListenersToInput(input, form, button)
     });
-    form.addEventListener('input', (evt) => {
-      toogleButton(evt.currentTarget);
-    });
-    toogleButton(form);
   };
   
-  /*function handleFormInput(evt) {
-    toogleButton(evt.currentTarget)
-  };*/
-  
-  function toogleButton(form) {
-    const button = form.querySelector(config.submitButtonSelector);
+  function toogleButton(form, btn) {
     const isFormInvalid = !form.checkValidity();
     
-    button.disabled = isFormInvalid;
-    button.classList.toggle(config.inactiveButtonClass, isFormInvalid);
+    btn.disabled = isFormInvalid;
+    btn.classList.toggle(config.inactiveButtonClass, isFormInvalid);
   };
   
-  function addListenersToInput(input) {
-    input.addEventListener('input', handleFieldValidation);
+  function addListenersToInput(input, form, btn) {
+    input.addEventListener('input', (evt) => {
+      handleFieldValidation(evt);
+      toogleButton(form, btn);
+    });
   };
   
   function handleFieldValidation(evt) {//функция добавления 

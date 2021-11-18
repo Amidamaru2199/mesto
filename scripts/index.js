@@ -7,7 +7,7 @@ const nameInput = editFormElement.querySelector('#name-field');//поле вво
 const jobInput = editFormElement.querySelector('#profession-field');//поле ввода из формы попапа редактирования профиля
 const nameElement = document.querySelector('.profile__name');//имя из профиля
 const descriptionElement = document.querySelector('.profile__description');//профессия из профиля
-
+const editFormElementButton = editFormElement.querySelector('.popup__button');//кнопка из формы попапа редактирования профиля
 
 const cardPopupElement = document.querySelector('.popup_type_card');//попап для добавления карточек
 const cardPopupOpenButtonElement = document.querySelector('.profile__add-button');//кнопка для открытия попапа добавления карточек
@@ -35,6 +35,7 @@ function closePopup(popup) {//функция закрытия
 };
 
 editPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа редактирования
+  toogleButton(editFormElement, editFormElementButton);
   nameInput.value = nameElement.textContent;
   jobInput.value = descriptionElement.textContent;
   openPopup(editPopupElement);
@@ -42,6 +43,7 @@ editPopupOpenButtonElement.addEventListener('click', function() {//открыт�
 
 cardPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа добавления карточек
   openPopup(cardPopupElement);
+  toogleButton(addFormElement, addFormElementButton);
 });
 
 editPopupCloseButtonElement.addEventListener('click', function() {//закрытие для попапа редактирования
