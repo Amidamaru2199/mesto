@@ -1,4 +1,6 @@
-                                       
+import {Card} from './Card.js';
+import { FormValidator } from './FormValidator.js';
+                
 const editPopupElement = document.querySelector('.popup_type_edit');//попап для редактирования профиля
 const editPopupCloseButtonElement = editPopupElement.querySelector('.popup__close-button');//кнопка для закрытия попапа редактирования профиля
 const editPopupOpenButtonElement = document.querySelector('.profile__edit-button');//кнопка для открытия попапа редактирования профиля
@@ -21,10 +23,10 @@ const titleInput = addFormElement.querySelector('#title-field');//поле вв�
 const linkInput = addFormElement.querySelector('#link-field');//поле ввода из формы попапа добавления карточек
 const addFormElementButton = addFormElement.querySelector('.popup__button');//кнопка из формы попапа добавления карточек
 
-const imagePopupElement = document.querySelector('.popup-image');//попап картинка
+export const imagePopupElement = document.querySelector('.popup-image');//попап картинка
 const imagePopupCloseButtonElement = imagePopupElement.querySelector('.popup__close-button');//кнопка закрытия
 
-function openPopup(popup) {//функция открытия
+export function openPopup(popup) {//функция открытия
   popup.classList.add('popup_is-opened');
   document.addEventListener('keydown', closePopupByEscape);
 };
@@ -35,7 +37,7 @@ function closePopup(popup) {//функция закрытия
 };
 
 editPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа редактирования
-  toogleButton(editFormElement, editFormElementButton);
+  //toogleButton(editFormElement, editFormElementButton);
   nameInput.value = nameElement.textContent;
   jobInput.value = descriptionElement.textContent;
   openPopup(editPopupElement);
@@ -43,7 +45,7 @@ editPopupOpenButtonElement.addEventListener('click', function() {//открыт�
 
 cardPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа добавления карточек
   openPopup(cardPopupElement);
-  toogleButton(addFormElement, addFormElementButton);
+  //toogleButton(addFormElement, addFormElementButton);
 });
 
 editPopupCloseButtonElement.addEventListener('click', function() {//закрытие для попапа редактирования
@@ -81,64 +83,19 @@ function submitAddCardForm (evt) {//берёт знчение из попапа 
 
 addFormElement.addEventListener('submit', submitAddCardForm);//навесили событие на форму попапа добавления карточек
 
-function  renderInitialCards() {
+function  renderInitialCards() {//проходится по массиву объектов
   for (let i = 0; i < initialCards.length; i = i + 1) {
     const element = initialCards[i];
     renderItem(element);
+
+    initialCards.forEach(renderItem);
   };
 };
 
-function renderItem(element) {
-  const htmlElement = createCard(element)
+function renderItem(data) {//добовляет карточку в html document
+  const htmlElement = new Card(data, '.item_template').createCard()
   list.prepend(htmlElement);
-};
-
-function createCard(element) {
-  const htmlElement = itemTemplate.content.cloneNode(true);
-  const htmlElementImage = htmlElement.querySelector('.element__image')
-  htmlElement.querySelector('.element__text').textContent = element.name;
-  htmlElementImage.src = element.link;
-  htmlElementImage.alt = element.name;
-
-  setListeners(htmlElement);
-  setLikeListener(htmlElement);
-  setImageHandler(htmlElement);
-  return htmlElement;
-};
-                                                     //Удаление карточки ..от..     
-function setListeners(element) {
-  element.querySelector('.element__delete-button').addEventListener('click', handleDelete);
-};
-
-function handleDelete(event) {
-  event.target.closest('.element').remove();
-};
-                                                     //до
-
-                                                    //Сердечки ..от..                            
-function setLikeListener(element) {
-  element.querySelector('.element__vector').addEventListener('click', handleLikeClick);
-};
-
-function handleLikeClick(event) {
-  event.target.classList.toggle('element__vector_active');
-};
-                                                      //..до..
-const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
-const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
-
-function setImageHandler(cardTemplate) {
-    const cardElement = cardTemplate.querySelector('.element');//карточка
-    const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
-    const cardElementText = cardElement.querySelector('.element__text');//название карточки
-  
-  imagePopupOpenImgElement.addEventListener('click', function() {
-    imagePopupElementImg.src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
-    imagePopupElementText.textContent = cardElementText.textContent;//взяли текст из карточки
-    imagePopupElementImg.alt =  imagePopupOpenImgElement.getAttribute('alt');
-    openPopup(imagePopupElement);
-  });
-};
+};         
 
 renderInitialCards();
 
@@ -160,3 +117,19 @@ function closePopupByEscape(evt) {//закрытие открытого попа
     closePopup(openedPopup);
   };
 };
+
+const config = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__field',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_invalid',
+  inputErrorClass: 'popup__field_invalid',
+  errorClass: 'popup__error'
+};
+
+
+
+  const buppa = new FormValidator(config, addFormElement).enableValidation();
+  
+
+

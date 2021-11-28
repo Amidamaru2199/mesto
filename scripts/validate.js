@@ -1,4 +1,4 @@
-const config = {
+/*const config = {
     formSelector: '.popup__form',
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__button',
@@ -13,7 +13,7 @@ const config = {
     forms.forEach(addListenersToForm);
   };
   
-  enableValidation(config);
+  
   
   function addListenersToForm(form) {
     const inputs = Array.from(document.querySelectorAll(config.inputSelector));
@@ -39,7 +39,7 @@ const config = {
   
   function handleFieldValidation(evt) {//функция добавления 
     const element = evt.target
-    const errorContainer = document.querySelector(`#${element.id}-error`);
+    const errorContainer = document.querySelector(`.${element.id}-error`);
     if (!element.validity.valid) {
       element.classList.add(config.inputErrorClass);
     } else {
@@ -47,3 +47,5 @@ const config = {
     }
     errorContainer.textContent = element.validationMessage;
   };
+
+  enableValidation(config);*/
