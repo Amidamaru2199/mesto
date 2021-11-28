@@ -9,17 +9,16 @@ export class FormValidator {
         this._form = form;
     }
 
-
     enableValidation() {
-      const forms = Array.from(document.querySelectorAll(this._formSelector));//'.popup__form'
-      
-      forms.forEach((form) => this._addListenersToForm(form))
+      //const forms = Array.from(document.querySelectorAll(this._formSelector));//'.popup__form'
+      this._addListenersToForm(this._form)
+      //forms.forEach((form) => this._addListenersToForm(form))
 
       //forms.forEach(this._addListenersToForm);
     };
 
     _addListenersToForm(form) {
-      const inputs = Array.from(document.querySelectorAll(this._inputSelector));//находим массив полей ввода '.popup__field'
+      const inputs = Array.from(this._form.querySelectorAll(this._inputSelector));//находим массив полей ввода '.popup__field'
       const button = form.querySelector(this._submitButtonSelector);//находим кнопку внутри формы '.popup__button'
       inputs.forEach((input) => {
         this._addListenersToInput(input, form, button)
@@ -42,7 +41,7 @@ export class FormValidator {
 
     _handleFieldValidation(evt) {//функция добавления 
       const element = evt.target
-      const errorContainer = document.querySelector(`.${element.id}-error`);
+      const errorContainer = this._form.querySelector(`.${element.id}-error`);
       if (!element.validity.valid) {
         element.classList.add(this._inputErrorClass);
       } else {

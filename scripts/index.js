@@ -37,7 +37,7 @@ function closePopup(popup) {//функция закрытия
 };
 
 editPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа редактирования
-  //toogleButton(editFormElement, editFormElementButton);
+  buppa1._toogleButton(editFormElement, editFormElementButton);
   nameInput.value = nameElement.textContent;
   jobInput.value = descriptionElement.textContent;
   openPopup(editPopupElement);
@@ -45,7 +45,7 @@ editPopupOpenButtonElement.addEventListener('click', function() {//открыт�
 
 cardPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа добавления карточек
   openPopup(cardPopupElement);
-  //toogleButton(addFormElement, addFormElementButton);
+  buppa._toogleButton(addFormElement, addFormElementButton);
 });
 
 editPopupCloseButtonElement.addEventListener('click', function() {//закрытие для попапа редактирования
@@ -127,9 +127,8 @@ const config = {
   errorClass: 'popup__error'
 };
 
+const buppa = new FormValidator(config, addFormElement);
+buppa.enableValidation();
 
-
-  const buppa = new FormValidator(config, addFormElement).enableValidation();
-  
-
-
+const buppa1 = new FormValidator(config, editFormElement);
+buppa1.enableValidation();
