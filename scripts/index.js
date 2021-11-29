@@ -87,9 +87,14 @@ function  renderInitialCards() {//проходится по массиву об�
     initialCards.forEach(renderItem);
 };
 
+function createCard(item) {
+  const newCard = new Card(item, '.item_template').generateCard();
+  return newCard;
+}
+
 function renderItem(data) {//добовляет карточку в html document
-  const htmlElement = new Card(data, '.item_template').createCard()
-  list.prepend(htmlElement);
+  const newCard = createCard(data)
+  list.prepend(newCard);
 };         
 
 renderInitialCards();

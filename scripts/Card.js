@@ -7,7 +7,7 @@ export class Card {
         this._selector = selector;
     }
 
-    createCard() {//создает карточку
+    generateCard() {//создает карточку
         const htmlElement = document.querySelector(this._selector).content.cloneNode(true);
         const htmlElementImage = htmlElement.querySelector('.element__image')
         htmlElement.querySelector('.element__text').textContent = this._name;
