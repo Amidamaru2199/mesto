@@ -37,7 +37,7 @@ function closePopup(popup) {//функция закрытия
 };
 
 editPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа редактирования
-  buppa1._toogleButton(editFormElement, editFormElementButton);
+  editFormValidator.toogleButton(editFormElement, editFormElementButton);
   nameInput.value = nameElement.textContent;
   jobInput.value = descriptionElement.textContent;
   openPopup(editPopupElement);
@@ -45,7 +45,7 @@ editPopupOpenButtonElement.addEventListener('click', function() {//открыт�
 
 cardPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа добавления карточек
   openPopup(cardPopupElement);
-  buppa._toogleButton(addFormElement, addFormElementButton);
+  addFormValidator.toogleButton(addFormElement, addFormElementButton);
 });
 
 editPopupCloseButtonElement.addEventListener('click', function() {//закрытие для попапа редактирования
@@ -84,12 +84,7 @@ function submitAddCardForm (evt) {//берёт знчение из попапа 
 addFormElement.addEventListener('submit', submitAddCardForm);//навесили событие на форму попапа добавления карточек
 
 function  renderInitialCards() {//проходится по массиву объектов
-  for (let i = 0; i < initialCards.length; i = i + 1) {
-    const element = initialCards[i];
-    renderItem(element);
-
     initialCards.forEach(renderItem);
-  };
 };
 
 function renderItem(data) {//добовляет карточку в html document
@@ -127,8 +122,8 @@ const config = {
   errorClass: 'popup__error'
 };
 
-const buppa = new FormValidator(config, addFormElement);
-buppa.enableValidation();
+const addFormValidator = new FormValidator(config, addFormElement);
+addFormValidator.enableValidation();
 
-const buppa1 = new FormValidator(config, editFormElement);
-buppa1.enableValidation();
+const editFormValidator = new FormValidator(config, editFormElement);
+editFormValidator.enableValidation();
