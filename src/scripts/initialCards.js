@@ -1,4 +1,4 @@
-const initialCards = [//массив карточек
+export const initialCards = [//массив карточек
     {
       name: 'Архыз',
       link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'

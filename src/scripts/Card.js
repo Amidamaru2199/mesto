@@ -1,4 +1,4 @@
-import {imagePopupElement, openPopup} from './index.js';
+import {imagePopupElement, /*openPopup*/} from './index.js';
 
 export class Card {
     constructor(data, selector) {
@@ -48,7 +48,7 @@ export class Card {
       imagePopupElementImg.src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
       imagePopupElementText.textContent = cardElementText.textContent;//взяли текст из карточки
       imagePopupElementImg.alt =  imagePopupOpenImgElement.getAttribute('alt');
-      openPopup(imagePopupElement);
+      //openPopup(imagePopupElement);
     });
   };
 }
