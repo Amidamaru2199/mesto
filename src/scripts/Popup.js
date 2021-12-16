@@ -10,7 +10,7 @@ export class Popup {
       };
 
     close() {//функция закрытия
-        this._popupSelector.remove('popup_is-opened');
+        this._popupSelector.classList.remove('popup_is-opened');
         document.removeEventListener('keydown', this._handleEscClose);
         this._popupSelector.removeEventListener('click', this._handleByClickOverlay);
       };
@@ -29,6 +29,8 @@ export class Popup {
 
     setEventListeners() {
         const closeButton = this._popupSelector.querySelector('.popup__close-button');
-        closeButton.addEventListener('click', this.close);
-    }
+        closeButton.addEventListener('click', () => {
+          this.close();
+        });
+    };
 };

@@ -1,10 +1,9 @@
-import {imagePopupElement, /*openPopup*/} from './index.js';
-
 export class Card {
-    constructor(data, selector) {
+    constructor(data, selector, handleCardClick) {
         this._name = data.name;
         this._link = data.link;
         this._selector = selector;
+        this._handleCardClick = handleCardClick;
     }
 
     generateCard() {//создает карточку
@@ -38,17 +37,15 @@ export class Card {
     };
 
     _setImageHandler(cardTemplate) {
-      const imagePopupElementImg = imagePopupElement.querySelector('.popup-image__img');//нашли картинку из попапа
-      const imagePopupElementText = imagePopupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
       const cardElement = cardTemplate.querySelector('.element');//карточка
       const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
       const cardElementText = cardElement.querySelector('.element__text');//название карточки
-    
-    imagePopupOpenImgElement.addEventListener('click', function() {
-      imagePopupElementImg.src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
-      imagePopupElementText.textContent = cardElementText.textContent;//взяли текст из карточки
-      imagePopupElementImg.alt =  imagePopupOpenImgElement.getAttribute('alt');
-      //openPopup(imagePopupElement);
+        
+    imagePopupOpenImgElement.addEventListener('click', () => {
+      const src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
+      const text = cardElementText.textContent;//взяли текст из карточки
+      const alt =  imagePopupOpenImgElement.getAttribute('alt');
+      this._handleCardClick({src, text, alt})
     });
   };
 }
