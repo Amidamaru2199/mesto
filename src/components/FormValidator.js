@@ -7,6 +7,7 @@ export class FormValidator {
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
         this._form = form;
+        this._submitButton = this._form.querySelector('.popup__button');
     }
 
     enableValidation() {
@@ -28,11 +29,11 @@ export class FormValidator {
       });
     };
 
-    toogleButton(form, btn) {
-        const isFormInvalid = !form.checkValidity();
+    toogleButton() {
+        const isFormInvalid = !this._form.checkValidity();
         
-        btn.disabled = isFormInvalid;
-        btn.classList.toggle(this._inactiveButtonClass, isFormInvalid);
+        this._submitButton.disabled = isFormInvalid;
+        this._submitButton.classList.toggle(this._inactiveButtonClass, isFormInvalid);
       };
 
     _handleFieldValidation(evt) {//функция добавления 
