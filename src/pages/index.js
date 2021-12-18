@@ -18,31 +18,31 @@ editPopupOpenButtonElement.addEventListener('click', function() {//открыт�
   const userInfo = newUserInfo.getUserInfo()
   nameInput.value = userInfo.name;
   jobInput.value = userInfo.profession;
-  newPopupWithForm.open();
+  profilePopupWithForm.open();
 });
 
 cardPopupOpenButtonElement.addEventListener('click', function() {//открытие для попапа добавления карточек
-  newCardPopupWithForm.open();
+  сardPopupWithForm.open();
   addFormValidator.toogleButton();
 });
 
-const newPopupWithForm = new PopupWithForm('.popup_type_edit', submitEditProfileForm);
+const profilePopupWithForm = new PopupWithForm('.popup_type_edit', submitEditProfileForm);
 
-newPopupWithForm.setEventListeners()
+profilePopupWithForm.setEventListeners()
 
 function submitEditProfileForm (data) {//берёт знчение из попапа и вставляет в профиль
   newUserInfo.setUserInfo(data)
-  newPopupWithForm.close();
+  profilePopupWithForm.close();
 };
 
-const newCardPopupWithForm = new PopupWithForm('.popup_type_card', submitAddCardForm);
+const сardPopupWithForm = new PopupWithForm('.popup_type_card', submitAddCardForm);
 
-newCardPopupWithForm.setEventListeners()
+сardPopupWithForm.setEventListeners()
 
 function submitAddCardForm (data) {//берёт знчение из попапа и вставляет в карточки
   const card = createCard(data);
   newSection.addItem(card);
-  newCardPopupWithForm.close();
+  сardPopupWithForm.close();
 };
 
 function handleCardClick({src, text, alt}) {

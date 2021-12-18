@@ -39,13 +39,10 @@ export class Card {
     _setImageHandler(cardTemplate) {
       const cardElement = cardTemplate.querySelector('.element');//карточка
       const imagePopupOpenImgElement = cardElement.querySelector('.element__image');//картинка в карточке
-      const cardElementText = cardElement.querySelector('.element__text');//название карточки
         
     imagePopupOpenImgElement.addEventListener('click', () => {
-      const src = imagePopupOpenImgElement.getAttribute('src');//взяли src у картинки из карточки
-      const text = cardElementText.textContent;//взяли текст из карточки
-      const alt =  imagePopupOpenImgElement.getAttribute('alt');
-      this._handleCardClick({src, text, alt})
+      this._handleCardClick({src: this._link, text: this._name, alt: this._name});
+      /*Думал уже исправил это замечание. Спасибо за работу!!!*/
     });
   };
 }
