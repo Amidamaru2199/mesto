@@ -2,4 +2,13 @@
     border-radius: 100px;
     width: 120px;
     height: 120px;
+    position: relative;
+    z-index: 100;
 }
+
+.profile__image:hover {
+    z-index: 10;
+    opacity: 0.8;
+}
+
+

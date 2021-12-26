@@ -1,0 +1,11 @@
+.profile__pen {
+    width: 26px;
+    height: 26px;
+    position: relative;
+    left: -71px;
+    z-index: 50;
+}
+
+.profile__pen:hover {
+    z-index: 100;
+}
