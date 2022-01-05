@@ -1,7 +1,6 @@
 import {editPopupOpenButtonElement, editFormElement, nameInput, jobInput, cardPopupOpenButtonElement, addFormElement, config, avatarFormElement, avatar, pen} from '../components/constants.js';
 import { Card } from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
-import { initialCards } from '../components/initialCards.js';
 import './index.css'; // добавьте импорт главного файла стилей
 import { Section } from '../components/Section.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
