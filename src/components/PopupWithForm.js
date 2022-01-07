@@ -1,8 +1,8 @@
 import { Popup } from "./Popup";
 
 export class PopupWithForm extends Popup{
-    constructor(popup, submit) {
-        super(popup);
+    constructor(popupSelector, submit) {
+        super(popupSelector);
         this._submit = submit;
         this._form = this._popupElement.querySelector('.popup__form');
         this._submitButton = this._form.querySelector('.popup__button')
@@ -12,10 +12,8 @@ export class PopupWithForm extends Popup{
     _getInputValues() {
         const data = {};
         this._inputs.forEach((input) => {
-            //alert(data[input.name] = input.value)
             data[input.name] = input.value;
         });
-        console.log(data.image)
         return data;
     };
     

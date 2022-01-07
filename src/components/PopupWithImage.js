@@ -1,8 +1,8 @@
 import { Popup } from "./Popup"
 
 export class PopupWithImage extends Popup {
-    constructor(popup) {
-        super(popup)
+    constructor(popupSelector) {
+        super(popupSelector)
         this._imagePopupElementImg = this._popupElement.querySelector('.popup-image__img');//нашли картинку из попапа
         this._imagePopupElementText = this._popupElement.querySelector('.popup-image__text');//нашли текстовый элемент из карточки
     };
