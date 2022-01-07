@@ -12,10 +12,8 @@ export const addFormElement = cardPopupElement.querySelector('.popup__form');//Ñ
 export const avatarPopup = document.querySelector('.popup_type_avatar');
 export const avatarFormElement = avatarPopup.querySelector('.popup__form');
 export const avatarFormElementInput = avatarFormElement.querySelector('#avatar-field');
-export const avatar = document.querySelector('.profile__image');
-export const pen = document.querySelector('.profile__pen');
-
-
+//export const avatar = document.querySelector('.profile__image');
+export const avatarPopupOpenButtonElement = document.querySelector('.profile__pen');
 
 export const config = {
     formSelector: '.popup__form',

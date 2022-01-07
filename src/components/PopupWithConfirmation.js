@@ -1,10 +1,10 @@
 import { Popup } from "./Popup";
 
 export class PopupWithConfirmation extends Popup {
-    constructor(popupSelector, hendleDeleteCard) {
-        super(popupSelector);
+    constructor(popup, hendleDeleteCard) {
+        super(popup);
         this._hendleDeleteCard = hendleDeleteCard;
-        this._form = this._popupSelector.querySelector('.popup__form');
+        this._form = this._popupElement.querySelector('.popup__form');
     }
     setEventListeners() {
         super.setEventListeners();
@@ -13,12 +13,12 @@ export class PopupWithConfirmation extends Popup {
 
     _handleSubmit(evt) {
         evt.preventDefault();
-        this._hendleDeleteCard( this._card, this._id);
+        this._hendleDeleteCard(this._id, this._cardThis);
     };
 
-    open(card, id) {
+    open(id, cardThis) {
         super.open();
-        this._card = card;
         this._id = id;
+        this._cardThis = cardThis;
     }
 }

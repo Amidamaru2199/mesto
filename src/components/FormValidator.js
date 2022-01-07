@@ -7,25 +7,27 @@ export class FormValidator {
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
         this._form = form;
-        this._submitButton = this._form.querySelector('.popup__button');
+        this._submitButton = this._form.querySelector(config.submitButtonSelector);
+        //this._buttonElement = this._form.querySelector(this._settings.submitButtonSelector);
+        this._inputs = Array.from(this._form.querySelectorAll(config.inputSelector));
     }
 
     enableValidation() {
-      this._addListenersToForm(this._form);
+      this._addListenersToForm();
     };
 
-    _addListenersToForm(form) {
-      const inputs = Array.from(this._form.querySelectorAll(this._inputSelector));//находим массив полей ввода '.popup__field'
-      const button = form.querySelector(this._submitButtonSelector);//находим кнопку внутри формы '.popup__button'
-      inputs.forEach((input) => {
-        this._addListenersToInput(input, this._form, button)
+    _addListenersToForm() {
+      //const inputs = Array.from(this._form.querySelectorAll(this._inputSelector));//находим массив полей ввода '.popup__field'
+      //const button = this._form.querySelector(this._submitButtonSelector);//находим кнопку внутри формы '.popup__button'
+      this._inputs.forEach((input) => {
+        this._addListenersToInput(input)
       });
     };
 
-    _addListenersToInput(input, form, btn) {
+    _addListenersToInput(input) {
       input.addEventListener('input', (evt) => {
         this._handleFieldValidation(evt);
-        this.toogleButton(this._form, btn);
+        this.toogleButton();
       });
     };
 
